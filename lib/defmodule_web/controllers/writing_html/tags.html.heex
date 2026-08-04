@@ -1,0 +1,249 @@
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl mt-6 sm:mt-0 px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl lg:max-w-full">
+      <div class="grid grid-cols-8 gap-4">
+        <div class="col-span-8 justify-self-start">
+          <h1 class="text-2xl font-bold tracking-tight text-gray-900">
+            All posts tagged with "{@tag}"
+          </h1>
+          <%!-- Read Post Button --%>
+          <div class="flex flex-row mt-4">
+            <.link
+              href="/writing/"
+              class="rounded-md bg-indigo-600 px-3.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            >
+              <div class="flex flex-row">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 self-center mr-2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                  />
+                </svg>
+
+                <span class="sr-only">All Posts</span>
+                Back to All Posts
+              </div>
+            </.link>
+          </div>
+        </div>
+        <div class="col-span-8 md:col-span-6 space-y-20 lg:space-y-20">
+          <ul role="list" class="divide-y divide-gray-200">
+            <%= for post <- @posts do %>
+              <li class="py-4">
+                <article id={"#{post.id}"}>
+                  <%!-- Card --%>
+                  <div class="overflow-hidden rounded-lg bg-white shadow">
+                    <%!-- Card Header --%>
+                    <div class="flex flex-col px-4 py-5 sm:px-6">
+                      <%!-- Post Title --%>
+                      <h3 class="text-2xl font-semibold leading-6 text-primary">
+                        <.link href={"/writing/#{post.id}"}>
+                          <span>{post.title}</span>
+                        </.link>
+                      </h3>
+                      <%!-- Author and Date --%>
+                      <div class="flex flex-row gap-x-4">
+                        <div class="flex flex-row mt-2 gap-x-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-4 w-4 self-center"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+
+                          <span class="font-semibold text-neutral">
+                            {post.author}
+                          </span>
+                        </div>
+                        <div class="flex flex-row mt-2 gap-x-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-4 w-4 self-center"
+                          >
+                            <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                            <path
+                              fill-rule="evenodd"
+                              d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+
+                          <time
+                            datetime="{post.date}"
+                            class="text-neutral font-semibold self-center"
+                          >
+                            {Calendar.strftime(post.date, "%b %d, %Y")}
+                          </time>
+                        </div>
+                      </div>
+                      <%!-- Post Description --%>
+                      <p class="text-sm leading-6 text-neutral mt-2">
+                        {post.description}
+                      </p>
+                      <%!-- Read Post Button --%>
+                      <div class="flex flex-row mt-8">
+                        <.link
+                          href={"/writing/#{post.id}"}
+                          class="rounded-md bg-indigo-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+                        >
+                          <span class="sr-only">Read Post</span> Read Post
+                        </.link>
+                      </div>
+                    </div>
+                    <%!-- Card Footer --%>
+                    <div class="bg-gray-50 px-4 py-2 sm:px-6 flex flex-row flex-wrap">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="black"
+                        class="w-4 h-4 self-center mr-2"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.25 2.25a3 3 0 0 0-3 3v4.318a3 3 0 0 0 .879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 0 0 5.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 0 0-2.122-.879H5.25ZM6.375 7.5a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+
+                      <%!-- Post Tags --%>
+                      <%= for tag <- post.tags do %>
+                        <a
+                          href={"/writing/tags/#{URI.encode_www_form(tag)}"}
+                          class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 text-gray-600 hover:bg-slate-300"
+                        >
+                          {tag}
+                        </a>
+                      <% end %>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <%!-- Sidebar --%>
+        <div class="col-span-8 md:col-span-2 flex flex-col space-y-4 md:inline py-4">
+          <%!-- DuckDuckGo site search start--%>
+          <div>
+            <form method="get" id="ddgsearch" action="https://duckduckgo.com/">
+              <div class="relative flex items-center">
+                <input type="hidden" name="sites" value="wwwscience.io" />
+                <input type="hidden" name="k7" value="#ffffff" />
+                <input type="hidden" name="k8" value="#222222" />
+                <input type="hidden" name="k9" value="#00278e" />
+                <input type="hidden" name="kx" value="#20692b" />
+                <input type="hidden" name="kj" value="#fafafa" />
+                <input type="hidden" name="kt" value="p" />
+                <input
+                  type="text"
+                  name="q"
+                  placeholder="  Search with DuckDuckGo..."
+                  id="search"
+                  class="block w-full rounded-md border-0 py-1.5 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                />
+                <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </form>
+          </div>
+          <%!-- DuckDuckGo site search end --%>
+          <%!-- Email Subscription --%>
+          <%!-- {live_render(@conn, WwwscienceWeb.EmailSubscriptionLive)} --%>
+          <div class="flex flex-col space-y-6 border-2 rounded-md shadow max-h-fit p-4">
+            <%!-- Follow Us --%>
+            <h5 class="text-lg font-bold text-neutral">Follow us</h5>
+            <div class="flex flex-row flex-wrap gap-x-2">
+              <button
+                type="button"
+                class="relative inline-flex items-center bg-white px-3 py-2 rounded-md text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  version="1.1"
+                  id="Layer_1"
+                  viewBox="0 0 24 24"
+                  style="enable-background:new 0 0 24 24;"
+                  xml:space="preserve"
+                  class="h-5 w-5"
+                >
+                  <path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="relative -ml-px inline-flex items-center bg-white px-3 py-2 rounded-md text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                >
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </button>
+            </div>
+            <%!-- Recent Posts --%>
+            <h5 class="text-lg font-bold pt-4 text-neutral">Recent posts</h5>
+            <div class="flex flex-col gap-y-2">
+              <%= for post <- @recent_posts do %>
+                <div>
+                  <.link href={"/writing/#{post.id}"}>
+                    <h6 class="text-base text-neutral font-medium hover:text-indigo-500">
+                      {post.title}
+                    </h6>
+                  </.link>
+                  <p class="text-xs text-slate-600">{post.author} - {post.date}</p>
+                </div>
+              <% end %>
+            </div>
+            <%!-- Tags --%>
+            <h5 class="text-lg font-bold pt-4 text-neutral">Tags</h5>
+            <div class="flex flex-row flex-wrap gap-x-2 gap-y-2">
+              <%= for tag <- @tags do %>
+                <a
+                  href={"/writing/tags/#{URI.encode_www_form(tag)}"}
+                  class="bg-gray-200 hover:bg-slate-300 hover:cursor-pointer rounded-lg text-s text-neutral p-1"
+                >
+                  {tag}
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

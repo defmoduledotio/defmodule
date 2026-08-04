@@ -1,0 +1,60 @@
+<div class="bg-white dark:bg-base-100">
+  <div class="mx-auto max-w-xl px-6 py-24 sm:py-32 lg:px-8">
+    <h1 class="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl dark:text-primary-content">
+      Get in touch
+    </h1>
+    <p class="mt-4 text-lg text-primary-content">
+      Tell me about your project. I'll get back to you.
+    </p>
+
+    <.form
+      for={@form}
+      action={~p"/contact"}
+      method="post"
+      class="mt-10 space-y-2 [&_.label]:text-primary-content [&_.label]:font-medium"
+    >
+      <div class="grid grid-cols-1 gap-x-6 sm:grid-cols-2">
+        <.input
+          field={@form[:first_name]}
+          type="text"
+          label="First name *"
+          required
+          autocomplete="given-name"
+        />
+        <.input
+          field={@form[:last_name]}
+          type="text"
+          label="Last name"
+          autocomplete="family-name"
+        />
+      </div>
+
+      <.input
+        field={@form[:email]}
+        type="email"
+        label="Email *"
+        required
+        autocomplete="email"
+      />
+
+      <.input
+        field={@form[:phone]}
+        type="tel"
+        label="Phone number"
+        autocomplete="tel"
+      />
+
+      <.input
+        field={@form[:message]}
+        type="textarea"
+        label="Message *"
+        rows="5"
+        required
+      />
+
+      <div class="mt-6">
+        <.button variant="primary">Send message</.button>
+      </div>
+    </.form>
+  </div>
+</div>

@@ -14,10 +14,26 @@ defmodule DefmoduleWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :writing do
+    plug DefmoduleWeb.Plugs.Posts
+    plug DefmoduleWeb.Plugs.RecentPosts
+  end
+
   scope "/", DefmoduleWeb do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/contact", PageController, :contact
+    post "/contact", PageController, :submit_contact
+  end
+
+  scope "writing", DefmoduleWeb do
+    pipe_through :browser
+    pipe_through :writing
+
+    get "/", WritingController, :index
+    get "/:id", WritingController, :show
+    get "/tags/:id", WritingController, :tags
   end
 
   # Other scopes may use custom stacks.
