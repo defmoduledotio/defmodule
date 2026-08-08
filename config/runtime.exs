@@ -119,19 +119,20 @@ if config_env() == :prod do
 
   # ## Configuring the mailer
   #
-  # In production you need to configure the mailer to use a different adapter.
-  # Here is an example configuration for Mailgun:
-  #
-  #     config :defmodule, Defmodule.Mailer,
-  #       adapter: Swoosh.Adapters.Mailgun,
-  #       api_key: System.get_env("MAILGUN_API_KEY"),
-  #       domain: System.get_env("MAILGUN_DOMAIN")
-  #
-  # Most non-SMTP adapters require an API client. Swoosh supports Req, Hackney,
-  # and Finch out-of-the-box. This configuration is typically done at
-  # compile-time in your config/prod.exs:
-  #
-  #     config :swoosh, :api_client, Swoosh.ApiClient.Req
-  #
-  # See https://swoosh.hexdocs.pm/Swoosh.html#module-installation for details.
+  # Production sends real email through Postmark. The API token is read from
+  # the POSTMARK_API_KEY environment variable; we fail fast if it is missing so
+  # a misconfigured deploy is obvious at boot rather than silently dropping mail.
+  postmark_api_key =
+    System.get_env("POSTMARK_API_KEY") ||
+      raise """
+      environment variable POSTMARK_API_KEY is missing.
+      It is the Postmark server API token used to send transactional email.
+      Find it in Postmark under Servers > (your server) > API Tokens.
+      """
+
+  config :defmodule, Defmodule.Mailer,
+    adapter: Swoosh.Adapters.Postmark,
+    api_key: postmark_api_key
+
+  # The Swoosh API client (Req) is configured at compile time in config/prod.exs.
 end

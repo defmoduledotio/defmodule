@@ -42,21 +42,18 @@ defmodule DefmoduleWeb.Experience do
     ~H"""
     <style>
       .exp { --text-lo: #8B87A8; }
-      .exp-mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
     </style>
 
     <section class="exp bg-white dark:bg-base-100">
       <div class="mx-auto max-w-3/4 px-6 pb-24 sm:pb-32 lg:px-8">
-        <p class="exp-mono text-lg" style="color: #7F77DD">// experience</p>
+        <p class="font-mono text-lg" style="color: #7F77DD">// experience</p>
 
-        <h2 class="exp-mono mt-3 text-2xl font-medium text-base-content sm:text-3xl">
+        <h2 class="font-mono text-primary-content mt-3 text-2xl font-medium text-base-content sm:text-3xl">
           Ten years in production. Six on the BEAM.
         </h2>
 
-        <p class="mt-4 max-w-[540px] text-base/7" style="color: var(--text-lo)">
-          A decade of shipping production systems, then a deliberate move all-in
-          on Elixir — Phoenix and LiveView ever since, with IoT-over-PubSub and
-          geospatial pipelines along the way.
+        <p class="mt-4 max-w-[540px] text-md text-primary-content">
+          Years of sys-admin, then software in Ruby, now systems in Elixir.
         </p>
 
         <%!-- Timeline --%>
@@ -65,7 +62,7 @@ defmodule DefmoduleWeb.Experience do
             :for={bar <- @bars}
             class="grid grid-cols-1 gap-1.5 sm:grid-cols-[130px_1fr] sm:items-center sm:gap-4"
           >
-            <div class="exp-mono text-[11px]" style="color: #CECBF6">{bar.name}</div>
+            <div class="font-mono text-[11px]" style="color: #CECBF6">{bar.name}</div>
 
             <div class="relative h-[22px] overflow-visible rounded-md bg-neutral">
               <div
@@ -74,7 +71,7 @@ defmodule DefmoduleWeb.Experience do
               >
                 <span
                   :if={bar.ongoing}
-                  class="exp-mono pr-2 text-[10px] leading-none"
+                  class="font-mono pr-2 text-[10px] leading-none"
                   style={"color: #{note_color(bar.style)}"}
                 >
                   {bar.note}
@@ -83,7 +80,7 @@ defmodule DefmoduleWeb.Experience do
 
               <span
                 :if={!bar.ongoing}
-                class="exp-mono absolute top-1/2 -translate-y-1/2 pl-2 text-[10px] leading-none whitespace-nowrap"
+                class="font-mono absolute top-1/2 -translate-y-1/2 pl-2 text-[10px] leading-none whitespace-nowrap"
                 style={"left: #{fmt(bar.left + bar.width)}%; color: #{note_color(bar.style)}"}
               >
                 {bar.note}
@@ -94,21 +91,23 @@ defmodule DefmoduleWeb.Experience do
           <%!-- X-axis ticks (evenly spaced every 3 years => flex justify-between aligns exactly) --%>
           <div class="grid grid-cols-1 gap-1.5 pt-1 sm:grid-cols-[130px_1fr] sm:gap-4">
             <div class="hidden sm:block"></div>
-            <div class="exp-mono flex justify-between text-[10px]" style="color: var(--text-lo)">
+            <div class="font-mono flex justify-between text-[10px]" style="color: var(--text-lo)">
               <span :for={year <- @ticks}>{year}</span>
             </div>
           </div>
         </div>
 
         <%!-- Chip row --%>
+        <%!--
         <div class="mt-8 flex flex-wrap gap-2">
-          <span class="exp-mono rounded-full bg-neutral px-3 py-1 text-[11px]" style="color: #CECBF6">
+          <span class="font-mono rounded-full bg-neutral px-3 py-1 text-[11px]" style="color: #CECBF6">
             Principal Architect
           </span>
-          <span class="exp-mono rounded-full bg-neutral px-3 py-1 text-[11px]" style="color: #CECBF6">
+          <span class="font-mono rounded-full bg-neutral px-3 py-1 text-[11px]" style="color: #CECBF6">
             LiveView since 0.x
           </span>
         </div>
+        --%>
       </div>
     </section>
     """

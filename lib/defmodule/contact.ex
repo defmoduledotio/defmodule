@@ -64,7 +64,7 @@ defmodule Defmodule.Contact do
   def deliver(%__MODULE__{} = contact) do
     new()
     |> to(recipient())
-    |> from({"defmodule contact form", "no-reply@defmodule.dev"})
+    |> from({"defmodule contact form", "contact@defmodule.io"})
     |> reply_to({full_name(contact), contact.email})
     |> subject("New contact from #{full_name(contact)}")
     |> text_body(body(contact))

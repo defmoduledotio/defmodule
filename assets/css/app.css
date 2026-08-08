@@ -9,6 +9,34 @@
 /* Required for Tailwind to automatically pick up changes in colocated CSS files in dev */
 @source "../../_build/dev/phoenix-colocated/defmodule/*/";
 
+/* Global font tokens. Makes the `font-mono` utility resolve to JetBrains Mono
+   app-wide (homepage, experience section, anywhere) rather than being defined
+   in a single component. Falls back to the system monospace stack until the
+   JetBrains Mono webfont is actually loaded (see root.html.heex). */
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+}
+
+/* Self-hosted JetBrains Mono, served from priv/static/fonts at /fonts/.
+   Weights 400 (regular) and 500 (medium) — what the site uses. `swap` avoids
+   invisible text while the woff2 loads. Add more weights by dropping the file
+   in priv/static/fonts and adding another @font-face here. */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");
+}
+
 /* A Tailwind plugin that makes "hero-#{ICON}" classes available.
    The heroicons installation itself is managed by your mix.exs */
 @plugin "../vendor/heroicons";

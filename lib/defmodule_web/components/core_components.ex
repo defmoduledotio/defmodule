@@ -508,15 +508,12 @@ defmodule DefmoduleWeb.CoreComponents do
   """
   def logo_cloud_software(assigns) do
     ~H"""
-    <div class="bg-gray-100 py-24 sm:py-32">
+    <div class="bg-gray-300 py-8 sm:py-8">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 class="text-center text-3xl font-semibold leading-8 text-gray-900">
-          World class development experts in
-        </h2>
-        <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+        <div class="mx-auto my-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <a href="https://elixir-lang.org/">
             <img
-              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 grayscale"
+              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="/images/logos/elixir-horizontal.png"
               alt="elixirlang"
               width="158"
@@ -525,43 +522,25 @@ defmodule DefmoduleWeb.CoreComponents do
           </a>
           <a href="https://www.phoenixframework.org/">
             <img
-              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 grayscale"
+              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="/images/logos/phoenix.png"
               alt="phoenix framework"
               width="158"
               height="48"
             />
           </a>
-          <a href="https://react.dev/">
+          <a href="https://github.com/elixir-ecto/ecto">
             <img
-              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 grayscale"
-              src="/images/logos/react.png"
-              alt="reactjs"
-              width="158"
-              height="48"
-            />
-          </a>
-          <a href="https://www.electronjs.org/">
-            <img
-              class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1 grayscale"
-              src="/images/logos/electron.png"
-              alt="electron"
-              width="158"
-              height="48"
-            />
-          </a>
-          <a href="https://tailwindcss.com/">
-            <img
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 grayscale"
-              src="/images/logos/tailwindcss.png"
-              alt="tailwindcss"
+              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+              src="/images/logos/ecto.png"
+              alt="ecto"
               width="158"
               height="48"
             />
           </a>
           <a href="https://www.docker.com/">
             <img
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 grayscale"
+              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="/images/logos/docker.png"
               alt="docker"
               width="158"
@@ -570,7 +549,7 @@ defmodule DefmoduleWeb.CoreComponents do
           </a>
           <a href="https://kubernetes.io/">
             <img
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 grayscale"
+              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="/images/logos/kubernetes.png"
               alt="kubernetes"
               width="158"
@@ -579,18 +558,9 @@ defmodule DefmoduleWeb.CoreComponents do
           </a>
           <a href="https://www.rabbitmq.com/">
             <img
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 grayscale"
+              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
               src="/images/logos/rabbitmq.png"
               alt="rabbitmq"
-              width="158"
-              height="48"
-            />
-          </a>
-          <a href="https://nerves-project.org/">
-            <img
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 grayscale"
-              src="/images/logos/nerves.png"
-              alt="nerves"
               width="158"
               height="48"
             />

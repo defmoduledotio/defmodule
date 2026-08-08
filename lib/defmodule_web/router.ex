@@ -27,7 +27,7 @@ defmodule DefmoduleWeb.Router do
     post "/contact", PageController, :submit_contact
   end
 
-  scope "writing", DefmoduleWeb do
+  scope "/writing", DefmoduleWeb do
     pipe_through :browser
     pipe_through :writing
 
